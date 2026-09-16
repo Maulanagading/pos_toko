@@ -14,6 +14,7 @@ class CheckRole
             return response()->view('errors.403', [
                 'message' => 'Anda tidak memiliki akses ke halaman ini.',
             ], 403);
+
         }
 
         return $next($request);
