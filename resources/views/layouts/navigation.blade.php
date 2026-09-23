@@ -1,6 +1,7 @@
 <nav class="bg-white border-b border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center">
+            {{-- Menu Utama (Kiri) --}}
             <div class="flex space-x-6">
                 <a href="{{ route('dashboard') }}"
                     class="font-semibold {{ request()->routeIs('dashboard') ? 'text-indigo-600' : 'text-gray-700' }}">
@@ -26,8 +27,17 @@
                     class="{{ request()->routeIs('pos.index') ? 'text-indigo-600' : 'text-gray-500' }}">
                     Transaksi
                 </a>
+
+                {{-- Menu khusus Kasir--}}
+                @if (auth()->user()->role === 'kasir')
+                    <a href="{{ route('pos.history') }}"
+                        class="{{ request()->routeIs('pos.history') ? 'text-indigo-600' : 'text-gray-500' }}">
+                        Riwayat Transaksi Saya
+                    </a>
+                @endif
             </div>
 
+            {{-- Profil & Logout (Kanan) --}}
             <div class="flex items-center space-x-4 text-sm">
                 <span class="text-gray-600">{{ auth()->user()->name }}</span>
                 <form action="{{ route('logout') }}" method="POST">
