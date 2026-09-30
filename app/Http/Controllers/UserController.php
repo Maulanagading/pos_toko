@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Controller untuk mengelola akun pengguna sistem (Admin & Kasir).
+ * Hanya dapat diakses oleh Administrator.
+ */
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar semua pengguna / kasir toko.
      */
     public function index()
     {
@@ -15,7 +19,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan form pendaftaran user/kasir baru.
      */
     public function create()
     {
@@ -23,7 +27,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan akun pengguna baru ke database.
      */
     public function store(Request $request)
     {
@@ -31,7 +35,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Menampilkan informasi profil spesifik seorang pengguna.
      */
     public function show(string $id)
     {
@@ -39,7 +43,7 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Menampilkan form edit profil/role pengguna.
      */
     public function edit(string $id)
     {
@@ -47,7 +51,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Memperbarui data akun pengguna di database.
      */
     public function update(Request $request, string $id)
     {
@@ -55,7 +59,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Menghapus akun pengguna dari database.
      */
     public function destroy(string $id)
     {

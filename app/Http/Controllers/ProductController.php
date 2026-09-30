@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Controller untuk mengelola data Produk & Stok Toko (CRUD Produk).
+ * Hanya dapat diakses oleh Administrator.
+ */
 class ProductController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar seluruh produk dan status stoknya.
      */
     public function index()
     {
@@ -15,7 +19,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan form untuk menambahkan produk baru.
      */
     public function create()
     {
@@ -23,7 +27,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan data produk baru ke dalam database.
      */
     public function store(Request $request)
     {
@@ -31,7 +35,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Menampilkan detail spesifik suatu produk berdasarkan ID.
      */
     public function show(string $id)
     {
@@ -39,7 +43,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Menampilkan form edit untuk memperbarui data produk.
      */
     public function edit(string $id)
     {
@@ -47,7 +51,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Memperbarui data produk yang ada di database.
      */
     public function update(Request $request, string $id)
     {
@@ -55,7 +59,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Menghapus data produk dari database.
      */
     public function destroy(string $id)
     {

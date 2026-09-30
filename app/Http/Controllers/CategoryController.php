@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+/**
+ * Controller untuk mengelola kategori barang/produk (CRUD Kategori).
+ * Hanya dapat diakses oleh Administrator.
+ */
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar semua kategori barang.
      */
     public function index()
     {
@@ -15,7 +19,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan form untuk membuat kategori baru.
      */
     public function create()
     {
@@ -23,7 +27,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan data kategori baru ke database.
      */
     public function store(Request $request)
     {
@@ -31,7 +35,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Menampilkan detail kategori tertentu berdasarkan ID.
      */
     public function show(string $id)
     {
@@ -39,7 +43,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Menampilkan form edit kategori.
      */
     public function edit(string $id)
     {
@@ -47,7 +51,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Memperbarui data kategori di database.
      */
     public function update(Request $request, string $id)
     {
@@ -55,7 +59,7 @@ class CategoryController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Menghapus kategori dari database.
      */
     public function destroy(string $id)
     {
