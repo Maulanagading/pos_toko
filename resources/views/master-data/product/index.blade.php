@@ -57,7 +57,7 @@
                     <tbody class="divide-y divide-gray-100">
                         @forelse ($products as $product)
                             <tr
-                                class="@if ($product->stock == 0) bg-red-50 @elseif ($product->stock < 10) bg-yellow-50 @endif">
+                                class="@if ($product->stock == 0) bg-red-50 @elseif ($product->stock < 10) bg-yellow-50 @else bg-green-50 @endif">
                                 <td class="px-4 py-2 text-sm">{{ $product->code }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $product->name }}</td>
                                 <td class="px-4 py-2 text-sm">{{ $product->category->name }}</td>
