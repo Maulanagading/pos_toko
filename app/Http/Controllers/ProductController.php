@@ -6,19 +6,19 @@ use App\Http\Requests\StoreProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
-/**
- * Controller untuk mengelola data Produk & Stok Toko (CRUD Produk).
- * Hanya dapat diakses oleh Administrator.
- */
+
 class ProductController extends Controller
 {
     /**
      * Menampilkan daftar seluruh produk dan status stoknya.
      */
-    public function index()
+    public function index(): View
     {
-        return response('Halaman Data Produk (Admin Only)');
+        $products = Product::with('category')->latest()->paginate(10);
+
+        return view('master-data.product.index', compact('products'));
     }
 
     /**
