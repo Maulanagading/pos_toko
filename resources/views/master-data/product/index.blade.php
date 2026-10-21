@@ -17,11 +17,31 @@
                     </div>
                 @endif
 
+
+
                 @if (session('error'))
                     <div class="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
                         {{ session('error') }}
                     </div>
                 @endif
+
+                <form method="GET" action="{{ route('products.index') }}" class="flex gap-3 mb-4">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        placeholder="Cari nama atau kode produk..." class="flex-1 rounded-md border-gray-300 shadow-sm">
+
+                    <select name="category_id" class="rounded-md border-gray-300">
+                        <option value="">Semua Kategori</option>
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" @selected(request('category_id') == $category->id)>
+                                {{ $category->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md">Cari</button>
+                    <a href="{{ route('products.index') }}" class="px-4 py-2 text-gray-500">Reset</a>
+                </form>
+
 
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
