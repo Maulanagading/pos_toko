@@ -17,6 +17,12 @@
                     </div>
                 @endif
 
+                @if (session('error'))
+                    <div class="mb-4 p-3 bg-red-100 text-red-700 rounded-md text-sm">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -48,6 +54,14 @@
                                 </td>
                                 <td class="px-4 py-2 text-sm text-center space-x-2">
                                     <a href="{{ route('products.edit', $product) }}" class="text-indigo-600">Ubah</a>
+
+                                    <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                        onsubmit="return confirm('Yakin ingin menghapus produk {{ $product->name }}?')"
+                                        class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="text-red-600">Hapus</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
