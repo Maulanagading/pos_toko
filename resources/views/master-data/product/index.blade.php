@@ -64,12 +64,14 @@
                                 <td class="px-4 py-2 text-sm text-right">
                                     Rp{{ number_format($product->price, 0, ',', '.') }}
                                 </td>
-                                <td class="px-4 py-2 text-sm text-center font-semibold">
-                                    {{ $product->stock }}
+                                <td class="px-4 py-2 text-sm text-center">
+                                    <span class="font-semibold block mb-1">{{ $product->stock }}</span>
                                     @if ($product->stock == 0)
-                                        <span class="text-red-600 text-xs block">Habis</span>
+                                        <x-badge status="habis" />
                                     @elseif ($product->stock < 10)
-                                        <span class="text-yellow-600 text-xs block">Menipis</span>
+                                        <x-badge status="menipis" />
+                                    @else
+                                        <x-badge status="aman" />
                                     @endif
                                 </td>
                                 <td class="px-4 py-2 text-sm text-center space-x-2">
