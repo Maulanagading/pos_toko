@@ -7,15 +7,12 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
-
 
 class ProductController extends Controller
 {
     /**
      * Menampilkan daftar seluruh produk dan status stoknya.
      */
-
     public function index(Request $request)
     {
         $query = Product::with('category');
@@ -37,7 +34,6 @@ class ProductController extends Controller
 
         return view('master-data.product.index', compact('products', 'categories'));
     }
-
 
     /**
      * Menampilkan form untuk menambahkan produk baru.
